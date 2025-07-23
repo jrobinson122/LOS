@@ -1,10 +1,18 @@
-// src/Homepage.tsx
+import { useEffect } from "react";
 import { Box } from "@mui/material";
 import homepageImage from '../images/newHomePage.png'
 import { motion } from "framer-motion";
 import CanvasStars from "../components/Star";
 
 const Homepage = () => {
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "auto"; // restore on unmount
+    };
+  }, []);
   return (
     <>
       <CanvasStars />
