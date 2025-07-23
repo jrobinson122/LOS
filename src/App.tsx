@@ -5,6 +5,8 @@ import NavBar from "./components/Navbar";
 import About from "./main-routes/About";
 import Shop from "./main-routes/Shop";
 import Contact from "./main-routes/Contact";
+import CanvasStars from "./components/Star";
+import { motion } from "framer-motion";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -22,10 +24,18 @@ const AnimatedRoutes = () => {
 const App = () => {
   return (
     <Router>
-      <NavBar />
-      <AnimatedRoutes />
+      <RouterAwareLayout />
     </Router>
   );
 };
+
+const RouterAwareLayout = () => {
+  return (
+    <>
+      <NavBar />
+      <AnimatedRoutes />
+    </>
+  )
+}
 
 export default App;

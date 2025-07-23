@@ -6,10 +6,9 @@ const BackgroundWrapper = styled(Box)({
   position: 'fixed',
   top: 0,
   left: 0,
-  right: 0,
-  bottom: 0,
-  overflow: 'hidden',
-  zIndex: 1, // Adjust if you want it above/below other content
+  width: '100vw',
+  height: '100vh',
+  zIndex: 1,
   pointerEvents: 'none',
 });
 

@@ -6,42 +6,44 @@ import CanvasStars from "../components/Star";
 
 const Homepage = () => {
   return (
-    <motion.div
-      initial={{ rotate: -180, scale: 0.5, opacity: 0 }}
-      animate={{ rotate: 0, scale: 1, opacity: 1 }}
-      exit={{ rotate: 90, scale: 0.8, opacity: 0 }}
-      transition={{ duration: 0.7, ease: "anticipate" }}
+    <>
+      <CanvasStars />
 
-
-    >
-      <Box
-        sx={{
-          minHeight: "100vh",
-          backgroundColor: '#e11f80',
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          px: 2,
-          py: 4,
-          position: 'relative',
-          overflow: 'hidden'
-        }}
+      <motion.div
+        initial={{ rotate: -180, scale: 0.5, opacity: 0 }}
+        animate={{ rotate: 0, scale: 1, opacity: 1 }}
+        exit={{ rotate: 90, scale: 0.8, opacity: 0 }}
+        transition={{ duration: 0.7, ease: "anticipate" }}
       >
-        <CanvasStars />
         <Box
-          id="image-zone"
           sx={{
-            width: "min(90vw, 600px)",
-            height: "auto",
-            backgroundImage: `url(${homepageImage})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            aspectRatio: "3 / 4",
+            minHeight: "100vh",
+            backgroundColor: '#e11f80',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            px: 2,
+            py: 4,
+            position: 'relative',
+            overflow: 'hidden'
           }}
-        />
-      </Box>
-    </motion.div>
+        >
+
+          <Box
+            id="image-zone"
+            sx={{
+              width: "min(90vw, 600px)",
+              height: "auto",
+              backgroundImage: `url(${homepageImage})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              aspectRatio: "3 / 4",
+            }}
+          />
+        </Box>
+      </motion.div>
+    </>
   );
 };
 
