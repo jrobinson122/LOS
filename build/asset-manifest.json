@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.js": "/static/js/main.e538067a.js",
+    "static/media/pigHat.png": "/static/media/pigHat.f4b99018654a36d928dc.png",
+    "static/media/losHat1.png": "/static/media/losHat1.7eabb459541a3eaa062c.png",
+    "static/media/troutHat.png": "/static/media/troutHat.fc33b04902454ee32d46.png",
+    "static/media/losHat2.png": "/static/media/losHat2.b67248ec1ccb59c7961f.png",
+    "static/media/newHomePage.png": "/static/media/newHomePage.bb57dc38a05836cd7afb.png",
+    "static/media/logo.png": "/static/media/logo.c24154b1335461c83bd0.png",
+    "index.html": "/index.html",
+    "main.e538067a.js.map": "/static/js/main.e538067a.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e538067a.js"
+  ]
+}
