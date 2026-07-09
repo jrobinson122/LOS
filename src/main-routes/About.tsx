@@ -1,18 +1,41 @@
 import { Box, Typography } from "@mui/material";
-import { motion } from "framer-motion";
+import LosPageShell from "../components/layout/LosPageShell";
+
 export default function About() {
   return (
-    <motion.div
-      initial={{ scale: 0.5, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      exit={{ scale: 0.7, opacity: 0 }}
-      transition={{ type: "spring", stiffness: 100, damping: 10 }}
+    <LosPageShell>
+      <Box
+        sx={{
+          minHeight: "80vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          px: { xs: 3, md: 8 },
+          py: 10,
+        }}
+      >
+        <Typography
+          variant="h1"
+          sx={{
+            fontSize: { xs: "3rem", md: "6rem" },
+            fontWeight: 900,
+            textTransform: "uppercase",
+            letterSpacing: "-0.05em",
+          }}
+        >
+          About
+        </Typography>
 
-
-    >
-      <Box sx={{ mt: 10, color: "white" }}>
-        <Typography variant="h3">ABOUT PAGE</Typography>
+        <Typography
+          sx={{
+            mt: 3,
+            maxWidth: 600,
+            color: "text.secondary",
+          }}
+        >
+          This page will tell the story behind Love. Obsessed. Scared.
+        </Typography>
       </Box>
-    </motion.div>
+    </LosPageShell>
   );
 }

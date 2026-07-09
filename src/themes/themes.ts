@@ -1,137 +1,37 @@
-// src/themes/clothingThemes.ts
-export interface ThemeConfig {
-    id: string;
-    name: string;
-    icon: string;
-    colors: {
-        primary: string;
-        secondary: string;
-        accent: string;
-        background: string;
-        text: string;
-        burst1: string;
-        burst2: string;
-        burst3: string;
-    };
-    effects: {
-        halftone: boolean;
-        scanlines: boolean;
-        grid: boolean;
-        glow: boolean;
-        gradient: string;
-    };
-    typography: {
-        fontFamily: string;
-        textShadow: string;
-        letterSpacing: string;
-    };
-    tagline: {
-        line1: string;
-        line2: string;
-        line3: string;
-    };
-}
-export const clothingThemes: Record<string, ThemeConfig> = {
-    pop: {
-        id: 'pop',
-        name: 'Pop Art',
-        icon: '💥',
-        colors: {
-            primary: '#e91e63',
-            secondary: '#d81b60',
-            accent: '#ffd54f',
-            background: '#e91e63',
-            text: '#ffd54f',
-            burst1: '#00bcd4',
-            burst2: '#ff9800',
-            burst3: '#00bcd4',
-        },
-        effects: {
-            halftone: true,
-            scanlines: false,
-            grid: false,
-            glow: false,
-            gradient: 'linear-gradient(135deg, #e91e63 0%, #d81b60 100%)',
-        },
-        typography: {
-            fontFamily: "'Bangers', 'Impact', cursive",
-            textShadow: '4px 4px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000',
-            letterSpacing: '0.05em',
-        },
-        tagline: {
-            line1: 'LOVE.',
-            line2: 'OBSESSED.',
-            line3: 'SCARED.',
-        },
-    },
-    neon: {
-        id: 'neon',
-        name: 'Neon Nights',
-        icon: '🌃',
-        colors: {
-            primary: '#000000',
-            secondary: '#1a1a1a',
-            accent: '#ffffff',
-            background: '#000000',
-            text: '#ffffff',
-            burst1: '#ffffff',
-            burst2: '#e0e0e0',
-            burst3: '#ffffff',
-        },
-        effects: {
-            halftone: false,
-            scanlines: true,
-            grid: false,
-            glow: true,
-            gradient: 'linear-gradient(135deg, #000000 0%, #0a0a0a 100%)',
-        },
-        typography: {
-            fontFamily: "'Orbitron', 'Courier New', monospace",
-            textShadow: '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.3)',
-            letterSpacing: '0.15em',
-        },
-        tagline: {
-            line1: 'LOVE.',
-            line2: 'OBSESSED.',
-            line3: 'SCARED.',
-        },
-    },
-    retro: {
-        id: 'retro',
-        name: 'Retro Wave',
-        icon: '🌅',
-        colors: {
-            primary: '#FF0A78',        // Hot pink/magenta (from image)
-            secondary: '#602b96',      // Deep purple (from image)
-            background: '#432879',     // Dark navy purple (from image)
-            text: '#FFFFFF',           // White
-            accent: '#FF0A78',         // Hot pink
-            burst1: '#FFB366',         // Peachy orange (sun top)
-            burst2: '#FF0A78',         // Hot pink/magenta (sun middle)
-            burst3: '#B026FF',         // Purple-pink (grid lines)
-        },
-        effects: {
-            halftone: false,
-            scanlines: false,
-            grid: true,
-            glow: true,
-            gradient: 'linear-gradient(180deg, #240f50 0%, #842a9b 20%, #FF0A78 60%, #842a9b 80%, #240f50 100%)',
-        },
-        typography: {
-            fontFamily: "'Righteous', 'Arial Black', sans-serif",
-            textShadow: 'rgba(255, 10, 120, 0.6), 3px 3px 6px rgba(0, 0, 0, 0.9)',
-            letterSpacing: '0.05em',
-        },
-        tagline: {
-            line1: 'LOVE.',
-            line2: 'OBSESSED.',
-            line3: 'SCARED.',
-        },
-    },
-};
-export const getTheme = (themeId: string): ThemeConfig => {
-    return clothingThemes[themeId] || clothingThemes.pop;
-};
-export const getAllThemes = (): ThemeConfig[] => {
-    return Object.values(clothingThemes);
-};
+// src/themes/losTheme.ts
+
+export const losTheme = {
+  colors: {
+    background: "#050506",
+    surface: "#0B0B0E",
+    surfaceGlass: "rgba(10, 10, 14, 0.72)",
+
+    text: "#F4F0E8",
+    textMuted: "rgba(244, 240, 232, 0.68)",
+
+    accent: "#74F7FF",
+    accentHot: "#FF3B8D",
+    border: "rgba(244, 240, 232, 0.14)",
+  },
+
+  typography: {
+    fontFamily: `"Inter", "Helvetica Neue", Arial, sans-serif`,
+    displayFamily: `"Arial Black", "Impact", sans-serif`,
+    letterSpacingWide: "0.16em",
+  },
+
+  effects: {
+    glowCyan: "0 0 32px rgba(116, 247, 255, 0.24)",
+    glowPink: "0 0 32px rgba(255, 59, 141, 0.24)",
+    background:
+      "radial-gradient(circle at 20% 20%, rgba(116, 247, 255, 0.16), transparent 28%), radial-gradient(circle at 80% 30%, rgba(255, 59, 141, 0.14), transparent 30%), #050506",
+  },
+
+  brand: {
+    name: "Love. Obsessed. Scared.",
+    shortName: "LOS",
+    tagline: "Ethical clothing for the in-between hours.",
+  },
+} as const;
+
+export type LosTheme = typeof losTheme;
