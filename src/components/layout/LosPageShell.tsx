@@ -1,35 +1,35 @@
 // src/components/layout/PageShell.tsx
 
-import { Box } from "@mui/material";
+import type { ReactNode } from "react";
+import { styled } from "@mui/material/styles";
 import LosNavbar from "./LosNavbar";
 import LosFooter from "./LosFooter";
 
 type PageShellProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
+
+const ShellRoot = styled("div")(({ theme }) => ({
+  position: "relative",
+  minHeight: "100vh",
+  color: theme.palette.text.primary,
+  backgroundColor: "transparent",
+}));
+
+const MainContent = styled("main")(() => ({
+  position: "relative",
+  minHeight: "100vh",
+  backgroundColor: "transparent",
+}));
 
 export default function PageShell({ children }: PageShellProps) {
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        position: "relative",
-        background: "transparent",
-        color: "text.primary",
-      }}
-    >
+    <ShellRoot>
       <LosNavbar />
 
-      <Box
-        component="main"
-        sx={{
-          background: "transparent",
-        }}
-      >
-        {children}
-      </Box>
+      <MainContent>{children}</MainContent>
 
       <LosFooter />
-    </Box>
+    </ShellRoot>
   );
 }

@@ -1,3 +1,5 @@
+// src/App.tsx
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -5,21 +7,10 @@ import {
   useLocation,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import {
-  ThemeProvider,
-  CssBaseline,
-  Box,
-} from "@mui/material";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 import { muiTheme } from "./themes/muiTheme";
 import { losTheme } from "./themes/themes";
-
-import { ParticlesProvider } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
-import type { Engine } from "@tsparticles/engine";
-
-import Atmosphere from "./components/background.tsx/Atmosphere";
-import FloatingDust from "./components/background.tsx/Temp";
-import NoiseOverlay from "./components/background.tsx/NoiseOverlay";
+import BackgroundScene from "./components/background.tsx/BackgroundScene";
 
 import Homepage from "./main-routes/Homepage";
 import About from "./main-routes/About";
@@ -41,46 +32,40 @@ const AnimatedRoutes = () => {
   );
 };
 
+const appShellStyle: React.CSSProperties = {
+  position: "relative",
+  minHeight: "100vh",
+  overflowX: "hidden",
+  backgroundColor: losTheme.colors.background,
+  isolation: "isolate",
+};
+
+const routeContentStyle: React.CSSProperties = {
+  position: "relative",
+  zIndex: 1,
+  minHeight: "100vh",
+};
+
 const AppShell = () => {
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        position: "relative",
-        overflowX: "hidden",
-        backgroundColor: losTheme.colors.background,
-      }}
-    >
-      <Atmosphere />
-      <FloatingDust />
-      <NoiseOverlay />
+    <div style={appShellStyle}>
+      <BackgroundScene />
 
-      <Box
-        sx={{
-          position: "relative",
-          zIndex: 1,
-          minHeight: "100vh",
-        }}
-      >
+      <main style={routeContentStyle}>
         <AnimatedRoutes />
-      </Box>
-    </Box>
+      </main>
+    </div>
   );
 };
 
 export default function App() {
-  const particlesInit = async (engine: Engine) => {
-    await loadSlim(engine);
-  };
-
   return (
-    <ParticlesProvider init={particlesInit}>
-      <ThemeProvider theme={muiTheme}>
-        <CssBaseline />
-        <Router>
-          <AppShell />
-        </Router>
-      </ThemeProvider>
-    </ParticlesProvider>
+    <ThemeProvider theme={muiTheme}>
+      <CssBaseline />
+
+      <Router>
+        <AppShell />
+      </Router>
+    </ThemeProvider>
   );
 }
