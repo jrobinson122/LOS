@@ -409,7 +409,7 @@
 // }
 import LosPageShell from "../components/layout/LosPageShell";
 
-export default function Contact() {
+export default function Homepage() {
   return (
     <LosPageShell>
      Hello

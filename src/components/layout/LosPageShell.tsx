@@ -2,7 +2,6 @@
 
 import type { ReactNode } from "react";
 import { styled } from "@mui/material/styles";
-import LosNavbar from "./LosNavbar";
 import LosFooter from "./LosFooter";
 
 type PageShellProps = {
@@ -25,7 +24,6 @@ const MainContent = styled("main")(() => ({
 export default function PageShell({ children }: PageShellProps) {
   return (
     <ShellRoot>
-      <LosNavbar />
 
       <MainContent>{children}</MainContent>
 
